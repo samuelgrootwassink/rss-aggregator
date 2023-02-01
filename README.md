@@ -1,5 +1,5 @@
 <h1> RSS Aggrgator</h1>
-Small library with example in main.py that aggregates rss & atom feeds into into objects that can be further used to for other purposes. 
+Small library with example in example.py that aggregates rss & atom feeds into into objects that can be further used to for other purposes. 
 
 <hr>
 <h2>Usage</h2>
