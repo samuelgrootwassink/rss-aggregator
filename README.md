@@ -12,14 +12,7 @@ And any blacklisted words in:
 `files/ignored_words.txt`
 
 <hr>
-Included are two methods that calculate the most used nouns:
-
-`popular_words(news_orgs, amount)`
-
-Which can then be used to filter articles that contain an amount of these previous prevoided popular words:
-
-`popular_entries(news_orgs, filters, treshold)`
-
+Check `example.py` and the `html_documentation` for usage examples
 <hr>
 Before use make sure you run Poetry to install all dependencies:
 
