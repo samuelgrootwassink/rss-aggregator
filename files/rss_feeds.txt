@@ -1,0 +1,5 @@
+http://rss.nytimes.com/services/xml/rss/nyt/World.xml
+http://rss.cnn.com/rss/edition_world.rss
+https://www.france24.com/en/rss
+https://www.brusselstimes.com/rss-feed/
+https://rss.dw.com/rdf/rss-en-all

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rss aggregator"
+version = "0.0.1"
+description = "Aggregate rss feeds, store them in objects and use for further manipulation"
+authors = ["Samuel groot Wassink"]
+license = "GNU General Public License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+feedparser = "^6.0.10"
+validators = "^0.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

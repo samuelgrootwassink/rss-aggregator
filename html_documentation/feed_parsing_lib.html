@@ -1,0 +1,1454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>feed_parsing_lib API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>feed_parsing_lib</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import feedparser, re, validators, time
+
+class FileHandler():
+    
+    def _format_entries(self, unstructred:dict):
+        &#34;&#34;&#34;
+        Formats and strips entries created by Feedparser package to only contain:
+        Title, Summary, Publishing date &amp; Url
+
+        Args:
+            unstructred (dict): An unstructures entry generated by feedparser containing a whole lot of data
+
+        Returns:
+            dict: A dictionary containing the entry
+        &#34;&#34;&#34;
+        structured = []
+        for i in range(len(unstructred)):
+            entry = dict()
+            entry[&#39;title&#39;] = unstructred[i].get(&#39;title&#39;,&#39;&#39;)
+            entry[&#39;summary&#39;] = unstructred[i].get(&#39;summary&#39;,&#39;&#39;)
+            entry[&#39;pub_date&#39;] = unstructred[i].get(&#39;published&#39;,&#39;&#39;)
+            entry[&#39;url&#39;] = unstructred[i].get(&#39;link&#39;,&#39;&#39;)
+            structured.append(entry)
+            
+        return structured
+
+
+    def process_rss_feeds(self, file_path:str = &#39;files/rss_feeds.txt&#39;):
+        &#34;&#34;&#34;
+        Processes rss/atom feeds with the help of the Feedparser package from a file of url&#39;s 
+
+        Args:
+            file_path (str, optional): The place where to read files from, needs to be a TXT file. Defaults to &#39;files/rss_feeds.txt&#39;.
+
+        Returns:
+            list: A list of all feeds that have been processed
+        &#34;&#34;&#34;
+        feeds = []
+        with open(file_path, &#39;r&#39;) as file:
+            length = len(file.readlines())
+            file.seek(0)
+            for feed in range(length):
+                url = str(file.readline()).strip(&#34;.rss\n&#34;)
+                f_dict = feedparser.parse(url)
+                f_author = f_dict.feed.get(&#39;title&#39;,f_dict.feed.get(&#39;href&#39;, &#39;unnamed&#39;))
+                f_entries = f_dict.entries
+                structured_feed_entries = self._format_entries(f_entries)
+                feeds.append((f_author, structured_feed_entries))
+                
+        return feeds
+            
+
+    def txt_to_set(self, file_path:str = &#39;files/ignored_words.txt&#39;):
+        &#34;&#34;&#34;
+        Processes a TXT file and creates a set out of it which is then returned, split information by using RegEx: re.split(&#39;\s&#39;)
+
+        Args:
+            file_path (str, optional): The file path to the TXT file that needs to be converted to a set. Defaults to &#39;files/ignored_words.txt&#39;.
+
+        Returns:
+            set: The set containing all the information from the provided file
+        &#34;&#34;&#34;
+        set_of_file = set()
+        sub_pattern = &#34;\s&#34;
+        with open(file_path, &#39;r&#39;) as file:
+            length = len(file.readlines())
+            file.seek(0)
+            for _ in range(length):
+                line = str(re.sub(sub_pattern, &#39;&#39;,str(file.readline())))
+                set_of_file.add(line)
+        return set_of_file
+
+    
+class FeedAggregator():
+    
+    def __init__(self):
+        &#34;&#34;&#34;
+        Aggregates all rss/atom feeds from the given file and stores them in Feed() instances
+        &#34;&#34;&#34;
+        self._rss_feed_list = FileHandler().process_rss_feeds()
+        self._feeds = [Feed(feed, self) for feed in self._rss_feed_list]
+        self._blacklisted = FileHandler().txt_to_set()
+    
+    
+    @property
+    def feed_list(self):
+        &#34;&#34;&#34;
+        Read-only list of feeds
+
+        Returns:
+            list: List of all Feed() instances
+        &#34;&#34;&#34;
+        return self._feeds
+    
+    
+    @property
+    def blacklisted(self):
+        &#34;&#34;&#34;
+        Read-only set of all blacklisted words
+
+        Returns:
+            set: All blacklisted words read from a file
+        &#34;&#34;&#34;
+        return self._blacklisted  
+    
+      
+    @property
+    def max_entries(self):
+        &#34;&#34;&#34;
+        Read-only integer of max amount of Entry() instances found in a Feed() instance
+
+        Returns:
+            int: Highest number of Entry() instances found in one Feed() instance
+         &#34;&#34;&#34;
+        if self._feeds == []:
+            return
+        feed_entries = set()
+        for feed in self._feeds:
+            feed_entries.add(len(feed.entries))
+        return max(feed_entries)
+    
+    
+    def popular_entries(self, filter_treshold:float = 0.01, entry_treshold:float = 0.01):
+        &#34;&#34;&#34;
+        Gathers a list of all Entry() instances that fall above the treshold provided
+
+        Args:
+            filter_treshold (float, optional): Treshold with which the filters are gathered. Defaults to 0.01.
+            entry_treshold (float, optional): Treshold with which the entries are gathered. Defaults to 0.01.
+
+        Returns:
+            list: List of all Entry() instances
+        &#34;&#34;&#34;
+        popular_entries = []
+        filters = dict()
+        for feed in self._feeds:
+            filters = feed.popular_words(self._blacklisted,filter_treshold, filters)
+
+        for feed in self._feeds:
+            popular_entries += feed.popular_entries(filters, entry_treshold)
+
+        return popular_entries
+    
+    
+    def __str__(self):
+        &#34;&#34;&#34;
+        Displays all Feed() instances contained by this instance
+
+        Returns:
+            str: Fancy way to display what this instance holds
+        &#34;&#34;&#34;
+        feed_coll = &#39;&#39;
+        for feed in self._feeds:
+             feed_coll = f&#34;{feed_coll} {str(feed)} \n&#34;
+        return feed_coll
+   
+    
+class Feed():
+
+    def __init__(self, feed:tuple, aggregator:FeedAggregator):
+        &#34;&#34;&#34;
+        Initialises a Feed() instance and adds every entry belonging to the feed in the form of an Entry() instance
+
+        Args:
+            feed (tuple): The feed contains (name of news org, entries)
+            aggregator (FeedAggregator): The aggregator this Feed() instance belongs to
+        &#34;&#34;&#34;
+        title, entries = feed
+        self._name = title
+        self._entry_list = []
+        self._feed_aggregator = aggregator
+        
+        
+        for entry in entries:
+            self._entry_list.append(Entry(feed=self, **entry))
+        
+          
+    @property
+    def entries(self):
+        &#34;&#34;&#34;
+        Read-only list of entries
+
+        Returns:
+            list: List of Entry() instances
+        &#34;&#34;&#34;
+        return self._entry_list
+    
+    
+    @property
+    def weight(self):
+        &#34;&#34;&#34;
+        Weight of Feed() instance in relation to all Feed() instances belonging to the FeedAggregator() instance. The normalization process takes the highest amount of entries found and divides it by the currents feed entries to generate a more balanced picture of how many times a word is featured in all feeds.
+
+        Returns:
+            float: The weight assigned to ever Entry() instance of this Feed() instance
+        &#34;&#34;&#34;
+        if self._entry_list and self._feed_aggregator.max_entries != 0:
+            return ((self._feed_aggregator.max_entries / len(self._entry_list)) / 100)
+        return .01
+        
+    
+    
+    def popular_words(self, blacklisted,treshold:float = 0.1, popular_words:dict =dict()):
+        &#34;&#34;&#34;
+         Scans all the articles and determines the populartiy of a given word according to how many times it features. Normalizes the occurence by giving each feed it&#39;s own weight. 
+
+        Args:
+            blacklisted (set): Set of blacklisted words
+            treshold (float, optional): Treshold for below which words are omitted from the returned dictionary. Defaults to 0.1.
+            popular_words (dict, optional): Applicable for a FeedAggregator() instance with multiple Feed() instances, passes along existing dictionary of popular words if entered. Defaults to dict().
+
+        Returns:
+            dict: Dictionary of popular words and their weight
+        &#34;&#34;&#34;
+        _popular_words = popular_words
+        for entry in self._entry_list:
+            nouns = entry.filtered_words(blacklisted)
+            for noun in nouns:
+                _popular_words[noun] = round((_popular_words.get(noun, 0.00) + self.weight), 2)
+        _popular_words = { word: weight for word, weight in _popular_words.items() if weight &gt; treshold}
+        
+        return _popular_words
+    
+    
+    def popular_entries(self, filters:dict, treshold:float = 0.01):
+        &#34;&#34;&#34;
+        Assigns weight to entries according to the weight of filter words found in an entry. Returns all entries that have a weight that is above the treshold.
+
+        Args:
+            filters (dict): Words that entries need to be filtered by
+            treshold (float, optional): Treshold that entry weight needs to be above, else is omitted from the returned list. Defaults to 0.01.
+
+        Returns:
+            list: A list of all filtered entries with weight above the treshold
+        &#34;&#34;&#34;
+        _popular_entries = dict()
+        for entry in self._entry_list:
+            _weight = 0
+            for word, weight in filters.items():
+                if word in entry.summary.lower():
+                    _weight += weight     
+            _popular_entries[entry] = _weight
+    
+        return [entry for entry, weight in _popular_entries.items() if weight &gt; treshold]
+    
+    
+    def __str__(self):
+        &#34;&#34;&#34;
+        Name of Feed() instance
+
+        Returns:
+            str: Name of Feed() instance
+        &#34;&#34;&#34;
+        return f&#34;{self._name} &#34;
+    
+
+class Entry():
+    
+    def __init__(self, title:str, summary:str, pub_date:str, url:str, feed:Feed):
+        &#34;&#34;&#34;
+        Creates an Entry() instance to be used by Feed() instances 
+
+        Args:
+            title (str): Title of the entry
+            summary (str): Summary of the entry
+            pub_date (str): Publishing date of the entry
+            url (str): Url for the entry
+            news_org (Feed): The Feed() instance this entry belongs to
+        &#34;&#34;&#34;
+        self._title = title
+        self._summary = summary
+        self._pub_date = pub_date
+        self._url = url
+        self._feed = feed
+        
+        
+    @property
+    def title(self):
+        &#34;&#34;&#34;
+        Read-only title
+        
+        Returns:
+            str: The title of the Entry() instance
+        &#34;&#34;&#34;
+        return self._title
+        
+        
+    @property
+    def summary(self):
+        &#34;&#34;&#34;
+        Read-only summary
+
+        Returns:
+            str: The summary of the Entry() instance
+        &#34;&#34;&#34;
+        return self._summary
+    
+    
+    @property
+    def pub_date(self):
+        &#34;&#34;&#34;
+        Read-only publishing date
+
+        Returns:
+            str: The publishing date of the Entry() instance
+        &#34;&#34;&#34;
+        return self._pub_date
+    
+    
+    @property
+    def url(self):
+        &#34;&#34;&#34;
+        Read-only url
+
+        Returns:
+            str: The url of the Entry() instance
+        &#34;&#34;&#34;
+        return self._url
+    
+    
+    @property
+    def feed(self):
+        &#34;&#34;&#34;
+        Read-only feed
+
+        Returns:
+            str: The name of the Feed() instance this Entry() instance belongs to
+        &#34;&#34;&#34;
+        return str(self._feed)
+    
+    
+    def _word_validation(self, word:str, blacklisted:set , extra_blacklisted:set = {&#39;href=&#39;, &#39;&lt;a&gt;&#39;, &#39;&lt;/a&gt;&#39;,&#39;&gt;&#39;, &#39;&lt;&#39;, &#39;www&#39;, &#39;http&#39;, &#39;https&#39;, &#39;rel=&#39;}):
+        &#34;&#34;&#34;
+        Checks whether a word is valid, does so by using the validators module to check whether it is a url or domain. Also checks against a list of blacklisted words and takes an optional argument for custom blacklisted words or combinations.
+        
+        Args:
+            word (str): The word that needs to be checked
+            blacklisted (set): Set of predetermined words that are blacklisted
+            extra_blacklisted (set): Optional additions to blacklisted words
+
+        Returns:
+            Boolean: Returns False if word has not passed validation, True if it does
+        &#34;&#34;&#34;
+        stripped_word = word.lower()
+        if stripped_word in blacklisted or stripped_word in extra_blacklisted:
+            return False
+        elif validators.url(stripped_word) is True or validators.domain(stripped_word) is True:
+            return False
+        return True
+
+
+    def _find_nouns(self, blacklisted:set):
+        &#34;&#34;&#34;
+        Tries to identify and collect nouns, does this by looking for capitalized words. By checking if the previous word is also capitalized it tries to combine words to form nouns. Also checks against blacklisted words to ignore.
+
+        Args:
+            blacklisted (set): Line to check for nouns
+
+        Returns:
+            list: List of potential nouns
+        &#34;&#34;&#34;
+        split_line = self.summary.split(&#39; &#39;)
+        combined_word = &#39;&#39;
+        combined_words = []
+        pattern = &#39;[A-Z][^A-Z]*&#39;
+        for i in range(len(split_line)):
+            sub_pattern = &#34;[,]|[.][a-z]*|[&#39;’][a-z]&#34;
+            word = re.sub(sub_pattern, &#39;&#39;,split_line[i])
+            if self._word_validation(word, blacklisted) is False:
+                continue
+            if re.match(pattern, word) and combined_word == &#39;&#39;:
+                combined_word += word.lower()
+            elif re.match(pattern, word) and re.match(pattern, split_line[max(i-1, 0)]):
+                combined_word += f&#34; {word.lower()}&#34;
+            elif combined_word != &#39;&#39; and re.match(pattern, word) is None:
+                combined_words.append(combined_word)
+                combined_word = &#39;&#39;
+        return combined_words
+        
+        
+    def filtered_words(self, blacklisted:set):
+        &#34;&#34;&#34;
+        Returns a list of filtered words (potential nouns) that have been found in the Entry() instance
+
+        Args:
+            blacklisted (set): Set of words to ignore
+
+        Returns:
+            list: List of filtered words (nouns)
+        &#34;&#34;&#34;
+        return self._find_nouns(blacklisted)
+    
+
+na = FeedAggregator()
+start = time.time()
+entries = na.popular_entries(entry_treshold=.5)
+end = time.time()
+for entry in entries:
+    
+    print(entry.title + &#39;:&#39;)
+    print(entry.summary)
+    print(&#39;\n&#39;)
+print(&#34;The time of execution of above program is :&#34;,
+      (end-start) * 10**3, &#34;ms&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="feed_parsing_lib.Entry"><code class="flex name class">
+<span>class <span class="ident">Entry</span></span>
+<span>(</span><span>title: str, summary: str, pub_date: str, url: str, feed: <a title="feed_parsing_lib.Feed" href="#feed_parsing_lib.Feed">Feed</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates an Entry() instance to be used by Feed() instances </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>Title of the entry</dd>
+<dt><strong><code>summary</code></strong> :&ensp;<code>str</code></dt>
+<dd>Summary of the entry</dd>
+<dt><strong><code>pub_date</code></strong> :&ensp;<code>str</code></dt>
+<dd>Publishing date of the entry</dd>
+<dt><strong><code>url</code></strong> :&ensp;<code>str</code></dt>
+<dd>Url for the entry</dd>
+<dt><strong><code>news_org</code></strong> :&ensp;<code><a title="feed_parsing_lib.Feed" href="#feed_parsing_lib.Feed">Feed</a></code></dt>
+<dd>The Feed() instance this entry belongs to</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Entry():
+    
+    def __init__(self, title:str, summary:str, pub_date:str, url:str, feed:Feed):
+        &#34;&#34;&#34;
+        Creates an Entry() instance to be used by Feed() instances 
+
+        Args:
+            title (str): Title of the entry
+            summary (str): Summary of the entry
+            pub_date (str): Publishing date of the entry
+            url (str): Url for the entry
+            news_org (Feed): The Feed() instance this entry belongs to
+        &#34;&#34;&#34;
+        self._title = title
+        self._summary = summary
+        self._pub_date = pub_date
+        self._url = url
+        self._feed = feed
+        
+        
+    @property
+    def title(self):
+        &#34;&#34;&#34;
+        Read-only title
+        
+        Returns:
+            str: The title of the Entry() instance
+        &#34;&#34;&#34;
+        return self._title
+        
+        
+    @property
+    def summary(self):
+        &#34;&#34;&#34;
+        Read-only summary
+
+        Returns:
+            str: The summary of the Entry() instance
+        &#34;&#34;&#34;
+        return self._summary
+    
+    
+    @property
+    def pub_date(self):
+        &#34;&#34;&#34;
+        Read-only publishing date
+
+        Returns:
+            str: The publishing date of the Entry() instance
+        &#34;&#34;&#34;
+        return self._pub_date
+    
+    
+    @property
+    def url(self):
+        &#34;&#34;&#34;
+        Read-only url
+
+        Returns:
+            str: The url of the Entry() instance
+        &#34;&#34;&#34;
+        return self._url
+    
+    
+    @property
+    def feed(self):
+        &#34;&#34;&#34;
+        Read-only feed
+
+        Returns:
+            str: The name of the Feed() instance this Entry() instance belongs to
+        &#34;&#34;&#34;
+        return str(self._feed)
+    
+    
+    def _word_validation(self, word:str, blacklisted:set , extra_blacklisted:set = {&#39;href=&#39;, &#39;&lt;a&gt;&#39;, &#39;&lt;/a&gt;&#39;,&#39;&gt;&#39;, &#39;&lt;&#39;, &#39;www&#39;, &#39;http&#39;, &#39;https&#39;, &#39;rel=&#39;}):
+        &#34;&#34;&#34;
+        Checks whether a word is valid, does so by using the validators module to check whether it is a url or domain. Also checks against a list of blacklisted words and takes an optional argument for custom blacklisted words or combinations.
+        
+        Args:
+            word (str): The word that needs to be checked
+            blacklisted (set): Set of predetermined words that are blacklisted
+            extra_blacklisted (set): Optional additions to blacklisted words
+
+        Returns:
+            Boolean: Returns False if word has not passed validation, True if it does
+        &#34;&#34;&#34;
+        stripped_word = word.lower()
+        if stripped_word in blacklisted or stripped_word in extra_blacklisted:
+            return False
+        elif validators.url(stripped_word) is True or validators.domain(stripped_word) is True:
+            return False
+        return True
+
+
+    def _find_nouns(self, blacklisted:set):
+        &#34;&#34;&#34;
+        Tries to identify and collect nouns, does this by looking for capitalized words. By checking if the previous word is also capitalized it tries to combine words to form nouns. Also checks against blacklisted words to ignore.
+
+        Args:
+            blacklisted (set): Line to check for nouns
+
+        Returns:
+            list: List of potential nouns
+        &#34;&#34;&#34;
+        split_line = self.summary.split(&#39; &#39;)
+        combined_word = &#39;&#39;
+        combined_words = []
+        pattern = &#39;[A-Z][^A-Z]*&#39;
+        for i in range(len(split_line)):
+            sub_pattern = &#34;[,]|[.][a-z]*|[&#39;’][a-z]&#34;
+            word = re.sub(sub_pattern, &#39;&#39;,split_line[i])
+            if self._word_validation(word, blacklisted) is False:
+                continue
+            if re.match(pattern, word) and combined_word == &#39;&#39;:
+                combined_word += word.lower()
+            elif re.match(pattern, word) and re.match(pattern, split_line[max(i-1, 0)]):
+                combined_word += f&#34; {word.lower()}&#34;
+            elif combined_word != &#39;&#39; and re.match(pattern, word) is None:
+                combined_words.append(combined_word)
+                combined_word = &#39;&#39;
+        return combined_words
+        
+        
+    def filtered_words(self, blacklisted:set):
+        &#34;&#34;&#34;
+        Returns a list of filtered words (potential nouns) that have been found in the Entry() instance
+
+        Args:
+            blacklisted (set): Set of words to ignore
+
+        Returns:
+            list: List of filtered words (nouns)
+        &#34;&#34;&#34;
+        return self._find_nouns(blacklisted)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="feed_parsing_lib.Entry.feed"><code class="name">var <span class="ident">feed</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only feed</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The name of the Feed() instance this Entry() instance belongs to</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def feed(self):
+    &#34;&#34;&#34;
+    Read-only feed
+
+    Returns:
+        str: The name of the Feed() instance this Entry() instance belongs to
+    &#34;&#34;&#34;
+    return str(self._feed)</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Entry.pub_date"><code class="name">var <span class="ident">pub_date</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only publishing date</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The publishing date of the Entry() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def pub_date(self):
+    &#34;&#34;&#34;
+    Read-only publishing date
+
+    Returns:
+        str: The publishing date of the Entry() instance
+    &#34;&#34;&#34;
+    return self._pub_date</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Entry.summary"><code class="name">var <span class="ident">summary</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only summary</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The summary of the Entry() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def summary(self):
+    &#34;&#34;&#34;
+    Read-only summary
+
+    Returns:
+        str: The summary of the Entry() instance
+    &#34;&#34;&#34;
+    return self._summary</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Entry.title"><code class="name">var <span class="ident">title</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only title</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The title of the Entry() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def title(self):
+    &#34;&#34;&#34;
+    Read-only title
+    
+    Returns:
+        str: The title of the Entry() instance
+    &#34;&#34;&#34;
+    return self._title</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Entry.url"><code class="name">var <span class="ident">url</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only url</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The url of the Entry() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def url(self):
+    &#34;&#34;&#34;
+    Read-only url
+
+    Returns:
+        str: The url of the Entry() instance
+    &#34;&#34;&#34;
+    return self._url</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="feed_parsing_lib.Entry.filtered_words"><code class="name flex">
+<span>def <span class="ident">filtered_words</span></span>(<span>self, blacklisted: set)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of filtered words (potential nouns) that have been found in the Entry() instance</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>blacklisted</code></strong> :&ensp;<code>set</code></dt>
+<dd>Set of words to ignore</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of filtered words (nouns)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filtered_words(self, blacklisted:set):
+    &#34;&#34;&#34;
+    Returns a list of filtered words (potential nouns) that have been found in the Entry() instance
+
+    Args:
+        blacklisted (set): Set of words to ignore
+
+    Returns:
+        list: List of filtered words (nouns)
+    &#34;&#34;&#34;
+    return self._find_nouns(blacklisted)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="feed_parsing_lib.Feed"><code class="flex name class">
+<span>class <span class="ident">Feed</span></span>
+<span>(</span><span>feed: tuple, aggregator: <a title="feed_parsing_lib.FeedAggregator" href="#feed_parsing_lib.FeedAggregator">FeedAggregator</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialises a Feed() instance and adds every entry belonging to the feed in the form of an Entry() instance</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>feed</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The feed contains (name of news org, entries)</dd>
+<dt><strong><code>aggregator</code></strong> :&ensp;<code><a title="feed_parsing_lib.FeedAggregator" href="#feed_parsing_lib.FeedAggregator">FeedAggregator</a></code></dt>
+<dd>The aggregator this Feed() instance belongs to</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Feed():
+
+    def __init__(self, feed:tuple, aggregator:FeedAggregator):
+        &#34;&#34;&#34;
+        Initialises a Feed() instance and adds every entry belonging to the feed in the form of an Entry() instance
+
+        Args:
+            feed (tuple): The feed contains (name of news org, entries)
+            aggregator (FeedAggregator): The aggregator this Feed() instance belongs to
+        &#34;&#34;&#34;
+        title, entries = feed
+        self._name = title
+        self._entry_list = []
+        self._feed_aggregator = aggregator
+        
+        
+        for entry in entries:
+            self._entry_list.append(Entry(feed=self, **entry))
+        
+          
+    @property
+    def entries(self):
+        &#34;&#34;&#34;
+        Read-only list of entries
+
+        Returns:
+            list: List of Entry() instances
+        &#34;&#34;&#34;
+        return self._entry_list
+    
+    
+    @property
+    def weight(self):
+        &#34;&#34;&#34;
+        Weight of Feed() instance in relation to all Feed() instances belonging to the FeedAggregator() instance. The normalization process takes the highest amount of entries found and divides it by the currents feed entries to generate a more balanced picture of how many times a word is featured in all feeds.
+
+        Returns:
+            float: The weight assigned to ever Entry() instance of this Feed() instance
+        &#34;&#34;&#34;
+        if self._entry_list and self._feed_aggregator.max_entries != 0:
+            return ((self._feed_aggregator.max_entries / len(self._entry_list)) / 100)
+        return .01
+        
+    
+    
+    def popular_words(self, blacklisted,treshold:float = 0.1, popular_words:dict =dict()):
+        &#34;&#34;&#34;
+         Scans all the articles and determines the populartiy of a given word according to how many times it features. Normalizes the occurence by giving each feed it&#39;s own weight. 
+
+        Args:
+            blacklisted (set): Set of blacklisted words
+            treshold (float, optional): Treshold for below which words are omitted from the returned dictionary. Defaults to 0.1.
+            popular_words (dict, optional): Applicable for a FeedAggregator() instance with multiple Feed() instances, passes along existing dictionary of popular words if entered. Defaults to dict().
+
+        Returns:
+            dict: Dictionary of popular words and their weight
+        &#34;&#34;&#34;
+        _popular_words = popular_words
+        for entry in self._entry_list:
+            nouns = entry.filtered_words(blacklisted)
+            for noun in nouns:
+                _popular_words[noun] = round((_popular_words.get(noun, 0.00) + self.weight), 2)
+        _popular_words = { word: weight for word, weight in _popular_words.items() if weight &gt; treshold}
+        
+        return _popular_words
+    
+    
+    def popular_entries(self, filters:dict, treshold:float = 0.01):
+        &#34;&#34;&#34;
+        Assigns weight to entries according to the weight of filter words found in an entry. Returns all entries that have a weight that is above the treshold.
+
+        Args:
+            filters (dict): Words that entries need to be filtered by
+            treshold (float, optional): Treshold that entry weight needs to be above, else is omitted from the returned list. Defaults to 0.01.
+
+        Returns:
+            list: A list of all filtered entries with weight above the treshold
+        &#34;&#34;&#34;
+        _popular_entries = dict()
+        for entry in self._entry_list:
+            _weight = 0
+            for word, weight in filters.items():
+                if word in entry.summary.lower():
+                    _weight += weight     
+            _popular_entries[entry] = _weight
+    
+        return [entry for entry, weight in _popular_entries.items() if weight &gt; treshold]
+    
+    
+    def __str__(self):
+        &#34;&#34;&#34;
+        Name of Feed() instance
+
+        Returns:
+            str: Name of Feed() instance
+        &#34;&#34;&#34;
+        return f&#34;{self._name} &#34;</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="feed_parsing_lib.Feed.entries"><code class="name">var <span class="ident">entries</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only list of entries</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of Entry() instances</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def entries(self):
+    &#34;&#34;&#34;
+    Read-only list of entries
+
+    Returns:
+        list: List of Entry() instances
+    &#34;&#34;&#34;
+    return self._entry_list</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Feed.weight"><code class="name">var <span class="ident">weight</span></code></dt>
+<dd>
+<div class="desc"><p>Weight of Feed() instance in relation to all Feed() instances belonging to the FeedAggregator() instance. The normalization process takes the highest amount of entries found and divides it by the currents feed entries to generate a more balanced picture of how many times a word is featured in all feeds.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>The weight assigned to ever Entry() instance of this Feed() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def weight(self):
+    &#34;&#34;&#34;
+    Weight of Feed() instance in relation to all Feed() instances belonging to the FeedAggregator() instance. The normalization process takes the highest amount of entries found and divides it by the currents feed entries to generate a more balanced picture of how many times a word is featured in all feeds.
+
+    Returns:
+        float: The weight assigned to ever Entry() instance of this Feed() instance
+    &#34;&#34;&#34;
+    if self._entry_list and self._feed_aggregator.max_entries != 0:
+        return ((self._feed_aggregator.max_entries / len(self._entry_list)) / 100)
+    return .01</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="feed_parsing_lib.Feed.popular_entries"><code class="name flex">
+<span>def <span class="ident">popular_entries</span></span>(<span>self, filters: dict, treshold: float = 0.01)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Assigns weight to entries according to the weight of filter words found in an entry. Returns all entries that have a weight that is above the treshold.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filters</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Words that entries need to be filtered by</dd>
+<dt><strong><code>treshold</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Treshold that entry weight needs to be above, else is omitted from the returned list. Defaults to 0.01.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of all filtered entries with weight above the treshold</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def popular_entries(self, filters:dict, treshold:float = 0.01):
+    &#34;&#34;&#34;
+    Assigns weight to entries according to the weight of filter words found in an entry. Returns all entries that have a weight that is above the treshold.
+
+    Args:
+        filters (dict): Words that entries need to be filtered by
+        treshold (float, optional): Treshold that entry weight needs to be above, else is omitted from the returned list. Defaults to 0.01.
+
+    Returns:
+        list: A list of all filtered entries with weight above the treshold
+    &#34;&#34;&#34;
+    _popular_entries = dict()
+    for entry in self._entry_list:
+        _weight = 0
+        for word, weight in filters.items():
+            if word in entry.summary.lower():
+                _weight += weight     
+        _popular_entries[entry] = _weight
+
+    return [entry for entry, weight in _popular_entries.items() if weight &gt; treshold]</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.Feed.popular_words"><code class="name flex">
+<span>def <span class="ident">popular_words</span></span>(<span>self, blacklisted, treshold: float = 0.1, popular_words: dict = {})</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Scans all the articles and determines the populartiy of a given word according to how many times it features. Normalizes the occurence by giving each feed it's own weight. </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>blacklisted</code></strong> :&ensp;<code>set</code></dt>
+<dd>Set of blacklisted words</dd>
+<dt><strong><code>treshold</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Treshold for below which words are omitted from the returned dictionary. Defaults to 0.1.</dd>
+<dt><strong><code>popular_words</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>Applicable for a FeedAggregator() instance with multiple Feed() instances, passes along existing dictionary of popular words if entered. Defaults to dict().</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>Dictionary of popular words and their weight</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def popular_words(self, blacklisted,treshold:float = 0.1, popular_words:dict =dict()):
+    &#34;&#34;&#34;
+     Scans all the articles and determines the populartiy of a given word according to how many times it features. Normalizes the occurence by giving each feed it&#39;s own weight. 
+
+    Args:
+        blacklisted (set): Set of blacklisted words
+        treshold (float, optional): Treshold for below which words are omitted from the returned dictionary. Defaults to 0.1.
+        popular_words (dict, optional): Applicable for a FeedAggregator() instance with multiple Feed() instances, passes along existing dictionary of popular words if entered. Defaults to dict().
+
+    Returns:
+        dict: Dictionary of popular words and their weight
+    &#34;&#34;&#34;
+    _popular_words = popular_words
+    for entry in self._entry_list:
+        nouns = entry.filtered_words(blacklisted)
+        for noun in nouns:
+            _popular_words[noun] = round((_popular_words.get(noun, 0.00) + self.weight), 2)
+    _popular_words = { word: weight for word, weight in _popular_words.items() if weight &gt; treshold}
+    
+    return _popular_words</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="feed_parsing_lib.FeedAggregator"><code class="flex name class">
+<span>class <span class="ident">FeedAggregator</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Aggregates all rss/atom feeds from the given file and stores them in Feed() instances</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FeedAggregator():
+    
+    def __init__(self):
+        &#34;&#34;&#34;
+        Aggregates all rss/atom feeds from the given file and stores them in Feed() instances
+        &#34;&#34;&#34;
+        self._rss_feed_list = FileHandler().process_rss_feeds()
+        self._feeds = [Feed(feed, self) for feed in self._rss_feed_list]
+        self._blacklisted = FileHandler().txt_to_set()
+    
+    
+    @property
+    def feed_list(self):
+        &#34;&#34;&#34;
+        Read-only list of feeds
+
+        Returns:
+            list: List of all Feed() instances
+        &#34;&#34;&#34;
+        return self._feeds
+    
+    
+    @property
+    def blacklisted(self):
+        &#34;&#34;&#34;
+        Read-only set of all blacklisted words
+
+        Returns:
+            set: All blacklisted words read from a file
+        &#34;&#34;&#34;
+        return self._blacklisted  
+    
+      
+    @property
+    def max_entries(self):
+        &#34;&#34;&#34;
+        Read-only integer of max amount of Entry() instances found in a Feed() instance
+
+        Returns:
+            int: Highest number of Entry() instances found in one Feed() instance
+         &#34;&#34;&#34;
+        if self._feeds == []:
+            return
+        feed_entries = set()
+        for feed in self._feeds:
+            feed_entries.add(len(feed.entries))
+        return max(feed_entries)
+    
+    
+    def popular_entries(self, filter_treshold:float = 0.01, entry_treshold:float = 0.01):
+        &#34;&#34;&#34;
+        Gathers a list of all Entry() instances that fall above the treshold provided
+
+        Args:
+            filter_treshold (float, optional): Treshold with which the filters are gathered. Defaults to 0.01.
+            entry_treshold (float, optional): Treshold with which the entries are gathered. Defaults to 0.01.
+
+        Returns:
+            list: List of all Entry() instances
+        &#34;&#34;&#34;
+        popular_entries = []
+        filters = dict()
+        for feed in self._feeds:
+            filters = feed.popular_words(self._blacklisted,filter_treshold, filters)
+
+        for feed in self._feeds:
+            popular_entries += feed.popular_entries(filters, entry_treshold)
+
+        return popular_entries
+    
+    
+    def __str__(self):
+        &#34;&#34;&#34;
+        Displays all Feed() instances contained by this instance
+
+        Returns:
+            str: Fancy way to display what this instance holds
+        &#34;&#34;&#34;
+        feed_coll = &#39;&#39;
+        for feed in self._feeds:
+             feed_coll = f&#34;{feed_coll} {str(feed)} \n&#34;
+        return feed_coll</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="feed_parsing_lib.FeedAggregator.blacklisted"><code class="name">var <span class="ident">blacklisted</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only set of all blacklisted words</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>set</code></dt>
+<dd>All blacklisted words read from a file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def blacklisted(self):
+    &#34;&#34;&#34;
+    Read-only set of all blacklisted words
+
+    Returns:
+        set: All blacklisted words read from a file
+    &#34;&#34;&#34;
+    return self._blacklisted  </code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.FeedAggregator.feed_list"><code class="name">var <span class="ident">feed_list</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only list of feeds</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of all Feed() instances</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def feed_list(self):
+    &#34;&#34;&#34;
+    Read-only list of feeds
+
+    Returns:
+        list: List of all Feed() instances
+    &#34;&#34;&#34;
+    return self._feeds</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.FeedAggregator.max_entries"><code class="name">var <span class="ident">max_entries</span></code></dt>
+<dd>
+<div class="desc"><p>Read-only integer of max amount of Entry() instances found in a Feed() instance</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Highest number of Entry() instances found in one Feed() instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def max_entries(self):
+    &#34;&#34;&#34;
+    Read-only integer of max amount of Entry() instances found in a Feed() instance
+
+    Returns:
+        int: Highest number of Entry() instances found in one Feed() instance
+     &#34;&#34;&#34;
+    if self._feeds == []:
+        return
+    feed_entries = set()
+    for feed in self._feeds:
+        feed_entries.add(len(feed.entries))
+    return max(feed_entries)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="feed_parsing_lib.FeedAggregator.popular_entries"><code class="name flex">
+<span>def <span class="ident">popular_entries</span></span>(<span>self, filter_treshold: float = 0.01, entry_treshold: float = 0.01)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gathers a list of all Entry() instances that fall above the treshold provided</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filter_treshold</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Treshold with which the filters are gathered. Defaults to 0.01.</dd>
+<dt><strong><code>entry_treshold</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Treshold with which the entries are gathered. Defaults to 0.01.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of all Entry() instances</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def popular_entries(self, filter_treshold:float = 0.01, entry_treshold:float = 0.01):
+    &#34;&#34;&#34;
+    Gathers a list of all Entry() instances that fall above the treshold provided
+
+    Args:
+        filter_treshold (float, optional): Treshold with which the filters are gathered. Defaults to 0.01.
+        entry_treshold (float, optional): Treshold with which the entries are gathered. Defaults to 0.01.
+
+    Returns:
+        list: List of all Entry() instances
+    &#34;&#34;&#34;
+    popular_entries = []
+    filters = dict()
+    for feed in self._feeds:
+        filters = feed.popular_words(self._blacklisted,filter_treshold, filters)
+
+    for feed in self._feeds:
+        popular_entries += feed.popular_entries(filters, entry_treshold)
+
+    return popular_entries</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="feed_parsing_lib.FileHandler"><code class="flex name class">
+<span>class <span class="ident">FileHandler</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileHandler():
+    
+    def _format_entries(self, unstructred:dict):
+        &#34;&#34;&#34;
+        Formats and strips entries created by Feedparser package to only contain:
+        Title, Summary, Publishing date &amp; Url
+
+        Args:
+            unstructred (dict): An unstructures entry generated by feedparser containing a whole lot of data
+
+        Returns:
+            dict: A dictionary containing the entry
+        &#34;&#34;&#34;
+        structured = []
+        for i in range(len(unstructred)):
+            entry = dict()
+            entry[&#39;title&#39;] = unstructred[i].get(&#39;title&#39;,&#39;&#39;)
+            entry[&#39;summary&#39;] = unstructred[i].get(&#39;summary&#39;,&#39;&#39;)
+            entry[&#39;pub_date&#39;] = unstructred[i].get(&#39;published&#39;,&#39;&#39;)
+            entry[&#39;url&#39;] = unstructred[i].get(&#39;link&#39;,&#39;&#39;)
+            structured.append(entry)
+            
+        return structured
+
+
+    def process_rss_feeds(self, file_path:str = &#39;files/rss_feeds.txt&#39;):
+        &#34;&#34;&#34;
+        Processes rss/atom feeds with the help of the Feedparser package from a file of url&#39;s 
+
+        Args:
+            file_path (str, optional): The place where to read files from, needs to be a TXT file. Defaults to &#39;files/rss_feeds.txt&#39;.
+
+        Returns:
+            list: A list of all feeds that have been processed
+        &#34;&#34;&#34;
+        feeds = []
+        with open(file_path, &#39;r&#39;) as file:
+            length = len(file.readlines())
+            file.seek(0)
+            for feed in range(length):
+                url = str(file.readline()).strip(&#34;.rss\n&#34;)
+                f_dict = feedparser.parse(url)
+                f_author = f_dict.feed.get(&#39;title&#39;,f_dict.feed.get(&#39;href&#39;, &#39;unnamed&#39;))
+                f_entries = f_dict.entries
+                structured_feed_entries = self._format_entries(f_entries)
+                feeds.append((f_author, structured_feed_entries))
+                
+        return feeds
+            
+
+    def txt_to_set(self, file_path:str = &#39;files/ignored_words.txt&#39;):
+        &#34;&#34;&#34;
+        Processes a TXT file and creates a set out of it which is then returned, split information by using RegEx: re.split(&#39;\s&#39;)
+
+        Args:
+            file_path (str, optional): The file path to the TXT file that needs to be converted to a set. Defaults to &#39;files/ignored_words.txt&#39;.
+
+        Returns:
+            set: The set containing all the information from the provided file
+        &#34;&#34;&#34;
+        set_of_file = set()
+        sub_pattern = &#34;\s&#34;
+        with open(file_path, &#39;r&#39;) as file:
+            length = len(file.readlines())
+            file.seek(0)
+            for _ in range(length):
+                line = str(re.sub(sub_pattern, &#39;&#39;,str(file.readline())))
+                set_of_file.add(line)
+        return set_of_file</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="feed_parsing_lib.FileHandler.process_rss_feeds"><code class="name flex">
+<span>def <span class="ident">process_rss_feeds</span></span>(<span>self, file_path: str = 'files/rss_feeds.txt')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Processes rss/atom feeds with the help of the Feedparser package from a file of url's </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The place where to read files from, needs to be a TXT file. Defaults to 'files/rss_feeds.txt'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of all feeds that have been processed</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_rss_feeds(self, file_path:str = &#39;files/rss_feeds.txt&#39;):
+    &#34;&#34;&#34;
+    Processes rss/atom feeds with the help of the Feedparser package from a file of url&#39;s 
+
+    Args:
+        file_path (str, optional): The place where to read files from, needs to be a TXT file. Defaults to &#39;files/rss_feeds.txt&#39;.
+
+    Returns:
+        list: A list of all feeds that have been processed
+    &#34;&#34;&#34;
+    feeds = []
+    with open(file_path, &#39;r&#39;) as file:
+        length = len(file.readlines())
+        file.seek(0)
+        for feed in range(length):
+            url = str(file.readline()).strip(&#34;.rss\n&#34;)
+            f_dict = feedparser.parse(url)
+            f_author = f_dict.feed.get(&#39;title&#39;,f_dict.feed.get(&#39;href&#39;, &#39;unnamed&#39;))
+            f_entries = f_dict.entries
+            structured_feed_entries = self._format_entries(f_entries)
+            feeds.append((f_author, structured_feed_entries))
+            
+    return feeds</code></pre>
+</details>
+</dd>
+<dt id="feed_parsing_lib.FileHandler.txt_to_set"><code class="name flex">
+<span>def <span class="ident">txt_to_set</span></span>(<span>self, file_path: str = 'files/ignored_words.txt')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Processes a TXT file and creates a set out of it which is then returned, split information by using RegEx: re.split('\s')</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The file path to the TXT file that needs to be converted to a set. Defaults to 'files/ignored_words.txt'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>set</code></dt>
+<dd>The set containing all the information from the provided file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def txt_to_set(self, file_path:str = &#39;files/ignored_words.txt&#39;):
+    &#34;&#34;&#34;
+    Processes a TXT file and creates a set out of it which is then returned, split information by using RegEx: re.split(&#39;\s&#39;)
+
+    Args:
+        file_path (str, optional): The file path to the TXT file that needs to be converted to a set. Defaults to &#39;files/ignored_words.txt&#39;.
+
+    Returns:
+        set: The set containing all the information from the provided file
+    &#34;&#34;&#34;
+    set_of_file = set()
+    sub_pattern = &#34;\s&#34;
+    with open(file_path, &#39;r&#39;) as file:
+        length = len(file.readlines())
+        file.seek(0)
+        for _ in range(length):
+            line = str(re.sub(sub_pattern, &#39;&#39;,str(file.readline())))
+            set_of_file.add(line)
+    return set_of_file</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="feed_parsing_lib.Entry" href="#feed_parsing_lib.Entry">Entry</a></code></h4>
+<ul class="two-column">
+<li><code><a title="feed_parsing_lib.Entry.feed" href="#feed_parsing_lib.Entry.feed">feed</a></code></li>
+<li><code><a title="feed_parsing_lib.Entry.filtered_words" href="#feed_parsing_lib.Entry.filtered_words">filtered_words</a></code></li>
+<li><code><a title="feed_parsing_lib.Entry.pub_date" href="#feed_parsing_lib.Entry.pub_date">pub_date</a></code></li>
+<li><code><a title="feed_parsing_lib.Entry.summary" href="#feed_parsing_lib.Entry.summary">summary</a></code></li>
+<li><code><a title="feed_parsing_lib.Entry.title" href="#feed_parsing_lib.Entry.title">title</a></code></li>
+<li><code><a title="feed_parsing_lib.Entry.url" href="#feed_parsing_lib.Entry.url">url</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="feed_parsing_lib.Feed" href="#feed_parsing_lib.Feed">Feed</a></code></h4>
+<ul class="">
+<li><code><a title="feed_parsing_lib.Feed.entries" href="#feed_parsing_lib.Feed.entries">entries</a></code></li>
+<li><code><a title="feed_parsing_lib.Feed.popular_entries" href="#feed_parsing_lib.Feed.popular_entries">popular_entries</a></code></li>
+<li><code><a title="feed_parsing_lib.Feed.popular_words" href="#feed_parsing_lib.Feed.popular_words">popular_words</a></code></li>
+<li><code><a title="feed_parsing_lib.Feed.weight" href="#feed_parsing_lib.Feed.weight">weight</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="feed_parsing_lib.FeedAggregator" href="#feed_parsing_lib.FeedAggregator">FeedAggregator</a></code></h4>
+<ul class="">
+<li><code><a title="feed_parsing_lib.FeedAggregator.blacklisted" href="#feed_parsing_lib.FeedAggregator.blacklisted">blacklisted</a></code></li>
+<li><code><a title="feed_parsing_lib.FeedAggregator.feed_list" href="#feed_parsing_lib.FeedAggregator.feed_list">feed_list</a></code></li>
+<li><code><a title="feed_parsing_lib.FeedAggregator.max_entries" href="#feed_parsing_lib.FeedAggregator.max_entries">max_entries</a></code></li>
+<li><code><a title="feed_parsing_lib.FeedAggregator.popular_entries" href="#feed_parsing_lib.FeedAggregator.popular_entries">popular_entries</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="feed_parsing_lib.FileHandler" href="#feed_parsing_lib.FileHandler">FileHandler</a></code></h4>
+<ul class="">
+<li><code><a title="feed_parsing_lib.FileHandler.process_rss_feeds" href="#feed_parsing_lib.FileHandler.process_rss_feeds">process_rss_feeds</a></code></li>
+<li><code><a title="feed_parsing_lib.FileHandler.txt_to_set" href="#feed_parsing_lib.FileHandler.txt_to_set">txt_to_set</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
