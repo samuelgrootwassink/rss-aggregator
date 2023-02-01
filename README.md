@@ -12,7 +12,7 @@ And any blacklisted words in:
 `files/ignored_words.txt`
 
 <hr>
-Check `example.py` and the `html_documentation` for usage examples
+Check example.py and the html_documentation for usage examples
 <hr>
 Before use make sure you run Poetry to install all dependencies:
 
