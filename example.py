@@ -1,5 +1,5 @@
 import time
-from feed_parsing_lib import FeedAggregator, FileHandler
+from feed_parsing_lib import FeedAggregator
 
 
 Agg = FeedAggregator()
